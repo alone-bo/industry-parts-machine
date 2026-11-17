@@ -1,0 +1,10 @@
+{
+  "description": "展示EZHONG重型金属设备、产品与应用领域，帮助客户了解企业实力、车间、新闻资讯并便捷联系公司。",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
