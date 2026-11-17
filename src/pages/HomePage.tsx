@@ -2,7 +2,19 @@ import { useEffect, useState } from "react";
 import { Arrow, ContactBand } from "../components";
 import { industries, news, productDetails, products } from "../data";
 import buildIndustryImg from "@/assets/pexels-vietnam-real-estate-1776646607-29289931.jpg"
+import baseFrameImg from "@/assets/base-frame.jpg";
+import motorBaseImg from "@/assets/motor-base.jpg";
+import sliderBlockImg from "@/assets/slider-block.jpg";
+import swingArmImg from "@/assets/swing-arm.jpg";
+
 const featuredProducts = products;
+
+const fabricationItems = [
+  { title: "大型结构件", en: "Structural Fabrications", image: baseFrameImg },
+  { title: "机加工零部件", en: "Machined Components", image: sliderBlockImg },
+  { title: "重型机械部件", en: "Heavy Machinery Parts", image: motorBaseImg },
+  { title: "焊接结构件", en: "Welded Structures", image: swingArmImg },
+];
 
 export default function HomePage() {
   const [activeProduct, setActiveProduct] = useState(0);
@@ -259,6 +271,44 @@ export default function HomePage() {
           <div className="application-more">
             <span>更多领域</span>
             <p>Materials · Silos · Wind Towers · Composite Board</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="fabrication section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">
+                <span />
+                PRODUCTS &amp; PROJECTS
+              </div>
+              <h2>典型加工产品与项目</h2>
+            </div>
+            <div className="section-head-side fabrication-side">
+              <a href="#/products">
+                查看更多案例 <Arrow />
+              </a>
+            </div>
+          </div>
+          <div className="fabrication-grid">
+            {fabricationItems.map((item, index) => (
+              <a className="fabrication-card" href="#/products" key={item.title}>
+                <div className="fabrication-media">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                  <span className="fabrication-index">{String(index + 1).padStart(2, "0")}</span>
+                </div>
+                <div className="fabrication-caption">
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.en}</p>
+                  </div>
+                  <span className="fabrication-arrow">
+                    <Arrow diagonal />
+                  </span>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>

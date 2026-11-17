@@ -771,6 +771,119 @@ svg {
   font-weight: 700;
 }
 
+.fabrication {
+  border-top: 1px solid var(--line);
+  background: white;
+}
+
+.fabrication h2 {
+  font-weight: 600;
+}
+
+.fabrication-side {
+  width: auto;
+  align-content: end;
+  justify-items: end;
+}
+
+.fabrication-grid {
+  display: grid;
+  margin-top: 65px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.fabrication-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.fabrication-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--paper);
+}
+
+.fabrication-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.fabrication-card:hover .fabrication-media img {
+  transform: scale(1.055);
+}
+
+.fabrication-index {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: white;
+  background: var(--blue);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.fabrication-caption {
+  display: flex;
+  padding: 20px 0 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s;
+}
+
+.fabrication-card:hover .fabrication-caption {
+  border-color: var(--blue);
+}
+
+.fabrication-caption h3 {
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.fabrication-card:hover .fabrication-caption h3 {
+  color: var(--blue);
+}
+
+.fabrication-caption p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.fabrication-arrow {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.fabrication-arrow svg {
+  width: 16px;
+}
+
+.fabrication-card:hover .fabrication-arrow {
+  color: white;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
 .about {
   background: var(--paper);
 }
@@ -1397,6 +1510,11 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .fabrication-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
   .about-layout {
     grid-template-columns: 1fr;
   }
@@ -1560,6 +1678,20 @@ footer {
   .application-grid {
     margin-top: 45px;
     grid-template-columns: 1fr;
+  }
+
+  .fabrication-side {
+    justify-items: start;
+  }
+
+  .fabrication-grid {
+    margin-top: 40px;
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .fabrication-caption h3 {
+    font-size: 17px;
   }
 
   .application-card {
