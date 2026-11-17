@@ -56,7 +56,9 @@ export default function ProductsPage() {
                   aria-label={`查看${product.name}详情`}
                 >
                   <img src={product.image} alt={product.name} />
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div className="product-row-number">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                  </div>
                 </a>
                 <div className="product-row-copy">
                   <span className="product-row-category">{product.category}</span>
