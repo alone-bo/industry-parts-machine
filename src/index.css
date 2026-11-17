@@ -6765,12 +6765,12 @@ footer {
   justify-content: center;
   width: 100px;
   height: 100px;
-  background-color: #5781BF;
+  background-color: var(--blue);
 }
 
 .build-feature-index {
   color: hsl(210, 63%, 97%);
-  font-size: 64px;
+  font-size: 44px;
   font-weight: 700;
   letter-spacing: -0.07em;
   opacity: 0.14;
