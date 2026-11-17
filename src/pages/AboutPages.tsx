@@ -7,7 +7,7 @@ import strengthScaleImage from "../assets/Aging_blasting_painting_workshop.png";
 import strengthCapabilityImage from "../assets/Thermal_aging_furnace_200T.png";
 import strengthProcessImage from "../assets/automated_guided_vehicle.png";
 import strengthTeamImage from "../assets/MAG_semi-automatic_welding_machines.png";
-import machinedRingImage from "../assets/Auto_special_welder_for_gears_workpiece.png";
+import qualityGantryImage from "../assets/quality-gantry.jpg";
 import certIso14731Image from "../assets/cert-iso14731.jpg";
 import certIso9606Image from "../assets/cert-iso9606-1.jpg";
 import certIso14732Image from "../assets/cert-iso14732-1.jpg";
@@ -372,15 +372,15 @@ function QualityContent() {
     <section className="quality-section">
       <div className="shell">
         <div className="quality-intro">
-          <div className="quality-intro-media">
-            <img
-              src={machinedRingImage}
-              alt="大型工业机械零部件（圆环状金属件）"
-              loading="lazy"
-            />
-          </div>
+          <img
+            className="quality-intro-image"
+            src={qualityGantryImage}
+            alt="EZHONG 龙门架重型装备制造车间"
+            loading="lazy"
+          />
+          <div className="quality-intro-overlay" />
           <div className="quality-intro-copy">
-            <div className="eyebrow">
+            <div className="eyebrow light">
               <span />
               QUALITY MANAGEMENT
             </div>
