@@ -7,12 +7,11 @@ import strengthScaleImage from "../assets/Aging_blasting_painting_workshop.png";
 import strengthCapabilityImage from "../assets/Thermal_aging_furnace_200T.png";
 import strengthProcessImage from "../assets/automated_guided_vehicle.png";
 import strengthTeamImage from "../assets/MAG_semi-automatic_welding_machines.png";
-import rawMaterialImage from "../assets/Raw_material_control.png";
-import weldingQualificationImage from "../assets/Welding_process_qualification.png";
-import utReportImage from "../assets/UT_report.png";
-import weldJointImage from "../assets/Weld_joint_details.png";
-import weldInspectionImage from "../assets/Weld_inspection_ISO5817.png";
-import ultrasonicTestImage from "../assets/Ultrasonic_test.png";
+import machinedRingImage from "../assets/Auto_special_welder_for_gears_workpiece.png";
+import certIso14731Image from "../assets/cert-iso14731.jpg";
+import certIso9606Image from "../assets/cert-iso9606-1.jpg";
+import certIso14732Image from "../assets/cert-iso14732-1.jpg";
+import certIso9712Image from "../assets/cert-iso9712.jpg";
 import { orgNodes } from "../data";
 import { workshopCategories } from "../workshopData";
 
@@ -149,6 +148,8 @@ const iconPaths: Record<string, string> = {
   capability: "M4 20h16M7 20V8h10v12M12 8V3m-5 5 5-5 5 5M9.5 13h5M9.5 16h5",
   process: "M4 7h6v6H4zM14 11h6v6h-6zM10 10h2a2 2 0 0 1 2 2v2M7 13v4h7",
   team: "M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 0a2.5 2.5 0 1 0 0-5M3 20c.5-4 3-6 6-6s5.5 2 6 6m1-6c2.5.3 4.2 2.2 4.6 5",
+  quality: "M12 3l7 3v5c0 4.2-3 7.6-7 9-4-1.4-7-4.8-7-9V6l7-3Zm-3.4 8.7 2.3 2.3 4.4-4.5",
+  inspection: "M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm4.9 11.4 4.1 4.1",
   materials: "M4 8l8-4 8 4-8 4-8-4Zm0 4 8 4 8-4M4 16l8 4 8-4",
   manufacturing:
     "M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0-5v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1",
@@ -218,23 +219,33 @@ function StrengthContent() {
   );
 }
 
-const qualitySteps = [
-  { cn: "原材料质量控制", en: "Raw Material Control", image: rawMaterialImage, fit: "photo" },
+const qualityPoints = [
+  { icon: "quality", cn: "质量体系", en: "ISO 9001" },
+  { icon: "process", cn: "工艺控制", en: "全流程管理" },
+  { icon: "inspection", cn: "产品检验", en: "多重检测" },
+];
+
+const certificates = [
   {
-    cn: "焊接工艺评定",
-    en: "Welding Process Qualification",
-    image: weldingQualificationImage,
-    fit: "photo",
+    cn: "ISO 14731 国际焊接质量工程师与技师",
+    en: "IWE ×6 · IWS ×1",
+    image: certIso14731Image,
   },
-  { cn: "超声检测报告", en: "UT Report", image: utReportImage, fit: "document" },
-  { cn: "焊缝细节检查", en: "Weld Joint Details", image: weldJointImage, fit: "document" },
   {
-    cn: "焊缝质量检测",
-    en: "Weld Inspection – ISO 5817",
-    image: weldInspectionImage,
-    fit: "photo",
+    cn: "ISO 9606-1 国际焊工认证",
+    en: "39 Welders · 90 Qualifications",
+    image: certIso9606Image,
   },
-  { cn: "超声波检测", en: "Ultrasonic Testing", image: ultrasonicTestImage, fit: "photo" },
+  {
+    cn: "ISO 14732-1 国际焊接操作工认证",
+    en: "17 Operators · 17 Qualifications",
+    image: certIso14732Image,
+  },
+  {
+    cn: "ISO 9712 无损检测人员认证",
+    en: "7 Personnel · 9 Items",
+    image: certIso9712Image,
+  },
 ];
 
 function WorkshopContent() {
@@ -352,35 +363,76 @@ function WorkshopContent() {
           </div>
         </div>
       </section>
-      <section className="quality-flow-section">
-        <div className="shell">
-          <SectionTitle
-            eyebrow="MANUFACTURING FLOW"
-            copy="从原材料进厂到焊缝无损检测，每一道关键工序都有可追溯的检验记录。"
-          >
-            标准化工序
-            <br />
-            <strong>保障稳定品质</strong>
-          </SectionTitle>
-          <ol className="quality-flow">
-            {qualitySteps.map((step, index) => (
-              <li key={step.en}>
-                <span className="quality-node">{String(index + 1).padStart(2, "0")}</span>
-                <figure>
-                  <div className={`quality-image quality-image-${step.fit}`}>
-                    <img src={step.image} alt={`${step.cn}（${step.en}）`} loading="lazy" />
-                  </div>
-                  <figcaption>
-                    <b>{step.cn}</b>
-                    <small>{step.en}</small>
-                  </figcaption>
-                </figure>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
     </>
+  );
+}
+
+function QualityContent() {
+  return (
+    <section className="quality-section">
+      <div className="shell">
+        <div className="quality-intro">
+          <div className="quality-intro-media">
+            <img
+              src={machinedRingImage}
+              alt="大型工业机械零部件（圆环状金属件）"
+              loading="lazy"
+            />
+          </div>
+          <div className="quality-intro-copy">
+            <div className="eyebrow">
+              <span />
+              QUALITY MANAGEMENT
+            </div>
+            <h2>
+              严格的质量管理体系
+              <br />
+              <strong>确保产品可靠性</strong>
+            </h2>
+            <p>
+              建立完整的质量控制流程，从原材料检验、过程控制到成品检验，全面保障产品质量，满足国际标准与客户要求。
+            </p>
+            <ul className="quality-points">
+              {qualityPoints.map((point) => (
+                <li key={point.cn}>
+                  <span>
+                    <LineIcon name={point.icon} />
+                  </span>
+                  <b>{point.cn}</b>
+                  <small>{point.en}</small>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="certificates">
+          <div className="certificates-head">
+            <div>
+              <div className="eyebrow">
+                <span />
+                CERTIFICATES &amp; ACCREDITATIONS
+              </div>
+              <h3>资质证书与认证</h3>
+            </div>
+            <p>国际焊接与无损检测人员资质，证书可按需提供查验。</p>
+          </div>
+          <div className="certificate-grid">
+            {certificates.map((cert) => (
+              <figure className="certificate-card" key={cert.cn}>
+                <div className="certificate-media">
+                  <img src={cert.image} alt={`${cert.cn} ${cert.en}`} loading="lazy" />
+                </div>
+                <figcaption>
+                  <b>{cert.cn}</b>
+                  <small>{cert.en}</small>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -502,6 +554,13 @@ const chapters = [
     title: "车间介绍",
     en: "Manufacturing Floor",
     Content: WorkshopContent,
+  },
+  {
+    id: "quality",
+    number: "04",
+    title: "质量保障",
+    en: "Quality Assurance",
+    Content: QualityContent,
   },
 ];
 

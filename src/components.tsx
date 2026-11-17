@@ -91,6 +91,9 @@ export function Header({ path }: { path: string }) {
               <a href="#/about/workshop" onClick={(event) => jumpWithinAbout(event, "workshop")}>
                 车间介绍
               </a>
+              <a href="#/about/quality" onClick={(event) => jumpWithinAbout(event, "quality")}>
+                质量保障
+              </a>
             </div>
           </div>
           <a className={active("/news") ? "active" : ""} href="#/news">

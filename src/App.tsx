@@ -15,9 +15,17 @@ const titles: Record<string, string> = {
   "/about/architecture": "企业架构",
   "/about/strength": "公司实力",
   "/about/workshop": "车间介绍",
+  "/about/quality": "质量保障",
   "/news": "新闻中心",
   "/contact": "联系我们",
 };
+
+const aboutSections = [
+  "/about/architecture",
+  "/about/strength",
+  "/about/workshop",
+  "/about/quality",
+];
 
 const readHash = () => window.location.hash.slice(1) || "/";
 
@@ -34,8 +42,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!["/about/architecture", "/about/strength", "/about/workshop"].includes(path))
-      window.scrollTo({ top: 0, behavior: "instant" });
+    if (!aboutSections.includes(path)) window.scrollTo({ top: 0, behavior: "instant" });
     const pageTitle = path.startsWith("/news/")
       ? "新闻详情"
       : path.startsWith("/products/")
@@ -53,7 +60,7 @@ export default function App() {
     page = <ProductDetailPage id={decodeURIComponent(path.slice(10))} />;
   else if (path === "/applications") page = <ApplicationsPage query={query} />;
   else if (path === "/about") page = <AboutPage />;
-  else if (["/about/architecture", "/about/strength", "/about/workshop"].includes(path))
+  else if (aboutSections.includes(path))
     page = <AboutPage key="about" section={path.slice(7)} />;
   else if (path.startsWith("/about/architecture/"))
     page = <OrgDetailPage id={decodeURIComponent(path.slice(20))} />;
